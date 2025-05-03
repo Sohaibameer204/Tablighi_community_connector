@@ -1,9 +1,6 @@
 {
     "cli": {
       "version": "latest"
-    },
-    "update": {
-      "fallbackToCacheTimeout": 0
     }
   }
   
