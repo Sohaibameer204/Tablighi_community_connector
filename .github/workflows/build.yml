@@ -1,13 +1,11 @@
-name: Expo CI
+name: Expo Publish
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,5 +20,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Expo Project
-        run: npx expo export --dev
+      - name: Publish to Expo
+        run: npx expo publish --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
