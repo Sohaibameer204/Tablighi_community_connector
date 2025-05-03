@@ -3,7 +3,7 @@ name: Expo EAS Update CI/CD
 on:
   push:
     branches:
-      - main  # or your target branch
+      - main
   workflow_dispatch:
 
 jobs:
@@ -22,10 +22,6 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      # Optional: Add lint step if your project supports it
-      # - name: 🔍 Run Linter
-      #   run: npm run lint
-
       - name: 🚿 Clean install of latest EAS CLI
         run: |
           npm uninstall -g eas-cli || true
@@ -36,7 +32,7 @@ jobs:
         run: eas --version
 
       - name: 🚀 Publish to Expo using EAS Update
+        run: eas update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           CI: true
-        run: eas update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
