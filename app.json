@@ -22,6 +22,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "011616f7-d8fd-46d1-b7f5-f78de2292a60"
+      }
+    },
+    "owner": "sohaib_khan_10"
   }
 }
