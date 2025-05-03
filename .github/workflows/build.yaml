@@ -35,7 +35,9 @@ jobs:
 
       - name: 🚀 Publish to Expo using EAS Update
         run: |
-          npx eas-cli@latest update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
+           npm uninstall -g eas-cli || true
+           npm cache clean --force  # Clean the npm cache
+           npx eas-cli@latest update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           CI: true
