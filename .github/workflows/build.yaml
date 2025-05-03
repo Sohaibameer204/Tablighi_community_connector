@@ -22,12 +22,11 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🚿 Clean install of the latest EAS CLI and publish
+      - name: 🚀 Publish to Expo using EAS Update (Clean latest)
         run: |
-             npm uninstall -g eas-cli || true
-             npm cache clean --force  # Clean the npm cache thoroughly
-             rm -rf ~/.npm  # Remove the npm cache folder manually
-             npx eas-cli@latest update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
+          rm -rf ~/.npm
+          npm cache clean --force
+          npx --yes eas-cli@latest update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           CI: true
