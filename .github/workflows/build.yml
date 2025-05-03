@@ -29,7 +29,7 @@ jobs:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
       - name: Publish to Expo (EAS Update)
-        run: eas update --non-interactive --branch main
+        run: eas update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           CI: true
