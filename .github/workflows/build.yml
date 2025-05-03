@@ -1,16 +1,17 @@
-name: Build React Native APK
+name: Expo CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Set up Node.js
@@ -21,14 +22,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Android APK
-        run: |
-          cd android
-          ./gradlew assembleDebug
+      - name: Lint Code
+        run: npm run lint
 
-      - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
+      - name: Build Expo Project
+        run: npx expo export --dev
 
-        with:
-          name: apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+      # Optional: Publish to Expo
+      # Uncomment the below section if you want automatic publish
+      # - name: Publish to Expo
+      #   run: npx expo login -u ${{ secrets.EXPO_USERNAME }} -p ${{ secrets.EXPO_PASSWORD }} && npx expo publish
