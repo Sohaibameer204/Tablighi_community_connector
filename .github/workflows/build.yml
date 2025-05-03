@@ -20,8 +20,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Install EAS CLI
-        run: npm install -g eas-cli
+      - name: Install Latest EAS CLI
+        run: npm install -g eas-cli@latest
 
       - name: Authenticate with Expo
         run: eas whoami
