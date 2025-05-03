@@ -24,9 +24,11 @@ jobs:
 
       - name: 🚿 Clean install of latest EAS CLI
         run: |
-          npm uninstall -g eas-cli || true
-          npx clear-npx-cache || true
-          npm install -g eas-cli@latest
+             npm uninstall -g eas-cli || true
+             npm install -g eas-cli@latest
+             echo "EAS CLI version:"
+             eas --version
+
 
       - name: 🧪 Check EAS CLI version
         run: eas --version
