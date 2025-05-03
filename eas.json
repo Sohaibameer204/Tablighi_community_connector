@@ -2,10 +2,8 @@
     "cli": {
       "version": "latest"
     },
-    "build": {
-      "development": {},
-      "preview": {},
-      "production": {}
+    "update": {
+      "fallbackToCacheTimeout": 0
     }
   }
   

@@ -1,36 +1,42 @@
-name: Expo EAS Publish
+name: Expo EAS Update CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main  # or your target branch
+  workflow_dispatch:
 
 jobs:
   publish:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: ⚙️ Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
-      - name: Install Dependencies
+      - name: 📦 Install dependencies
         run: npm install
 
-      - name: Install Latest EAS CLI
-        run: npm install -g eas-cli@latest
+      # Optional: Add lint step if your project supports it
+      # - name: 🔍 Run Linter
+      #   run: npm run lint
 
-      - name: Authenticate with Expo
-        run: eas whoami
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-
-      - name: Publish to Expo (EAS Update)
+      - name: 🚿 Clean install of latest EAS CLI
         run: |
-          eas update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
+          npm uninstall -g eas-cli || true
+          npx clear-npx-cache || true
+          npm install -g eas-cli@latest
+
+      - name: 🧪 Check EAS CLI version
+        run: eas --version
+
+      - name: 🚀 Publish to Expo using EAS Update
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           CI: true
+        run: eas update --non-interactive --branch main --message "CI: Auto deploy from GitHub Actions"
