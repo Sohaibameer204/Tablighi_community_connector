@@ -51,45 +51,46 @@ src/
 ├── firebase.js
 assets/
 └── (App images and icons)
-🔄 CI/CD Integration
-This project uses Expo Application Services (EAS) for a fully automated Continuous Integration and Continuous Deployment (CI/CD) workflow:
 
-✅ Automated Builds: Push code to GitHub → Trigger build automatically via EAS
+---
 
-✅ Environment Config Management with eas.json
+## 🔄 CI/CD Integration
 
-✅ Cloud-based Builds for both Android & iOS (no Mac required for iOS!)
+This project utilizes **Expo Application Services (EAS)** for a fully automated **CI/CD pipeline**:
 
-✅ QR Code & Shareable Link Generation after build
+- ⚙️ Builds and deploys the app with a single command
+- 🔄 Pushes OTA (Over-The-Air) updates using Expo
+- 📤 Delivers QR code & shareable link for easy access
 
-✅ Expo Updates for publishing over-the-air (OTA) updates 
+### ⚡ To Build and Share:
 
-## 📦 Installation
-
-1. Clone the repo:
+1. **Install dependencies**:
    ```bash
-   git clone https://github.com/your-username/Tableeghi-Community-Connector.git
-   cd Tableeghi-Community-Connector
+   npm install
    
-2.Install dependencies:
-npm install
-3.Run on local device or emulator:
+Run on local device or emulator:
 npx expo start
-Scan the QR code with the Expo Go app to run on your phone!
-📲 Build & Share
-To generate an installable version using Expo CI/CD:
+📲 Scan the QR code with the Expo Go app to run the app on your phone!
+
+Build the installable version using CI/CD:
 eas build --platform android
-Once the build completes:
+After build completes:
 
 Get your shareable link and QR code from your Expo dashboard
 
-Anyone with the link or by scanning the QR code can install and use the app 🌍
+Share with anyone—no Play Store or App Store required!
+
+🌍 Anyone with the link or QR code can install and use the app on their Android or iOS devices.
 
 📧 Contact
 For suggestions, feedback, or collaboration:
-Sohaib khan
-📧 [Sohaibameer204@gmail.com]
-📱 [www.linkedin.com/in/sohaib-khan-0a95692a4]
+
+👤 Sohaib Khan
+📧 Sohaibameer204@gmail.com
+🔗 LinkedIn – www.linkedin.com/in/sohaib-khan-0a95692a4
+
+
+
 
 
 
