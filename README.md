@@ -78,6 +78,15 @@ After build completes:
 
 Get your shareable link and QR code from your Expo dashboard
 
+Access the application by copy these URL's into your expo go app or scan the below QR code 
+Update details page URL
+https://expo.dev/preview/update?message=CI%3A%20Auto%20deploy%20from%20GitHub%20Actions&updateRuntimeVersion=1.0.0&createdAt=2025-05-04T10%3A33%3A16.627Z&slug=exp&projectId=011616f7-d8fd-46d1-b7f5-f78de2292a60&group=5c0c8bf1-b5a6-43b6-9d6d-6c621ef617fa
+Update deep link URL
+exp+://expo-development-client/?url=https://u.expo.dev/011616f7-d8fd-46d1-b7f5-f78de2292a60/group/5c0c8bf1-b5a6-43b6-9d6d-6c621ef617fa
+
+
+![QRcode png](https://github.com/user-attachments/assets/bfbc12ef-cc29-4d65-b0f7-8b15ef9fc821)
+
 Share with anyone—no Play Store or App Store required!
 
 🌍 Anyone with the link or QR code can install and use the app on their Android or iOS devices.
